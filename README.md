@@ -3,7 +3,7 @@
 
 # Terraform ACI BFD Interface Policy Module
 
-Description
+Manages ACI BFD Interface Policy
 
 Location in GUI:
 `Tenants` » `XXX` » `Policies` » `Protocol` » `BFD`

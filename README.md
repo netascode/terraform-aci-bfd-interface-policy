@@ -48,11 +48,11 @@ module "aci_bfd_interface_policy" {
 | <a name="input_name"></a> [name](#input\_name) | BFD interface policy name | `string` | n/a | yes |
 | <a name="input_description"></a> [description](#input\_description) | Description | `string` | `""` | no |
 | <a name="input_subinterface_optimization"></a> [subinterface\_optimization](#input\_subinterface\_optimization) | Subinterface optimization | `bool` | `false` | no |
-| <a name="input_detection_multiplier"></a> [detection\_multiplier](#input\_detection\_multiplier) | Detection multiplier | `number` | `3` | no |
+| <a name="input_detection_multiplier"></a> [detection\_multiplier](#input\_detection\_multiplier) | Detection multiplier, Minimum value: 1, Maximum value: 50. | `number` | `3` | no |
 | <a name="input_echo_admin_state"></a> [echo\_admin\_state](#input\_echo\_admin\_state) | Echo admin state | `bool` | `true` | no |
-| <a name="input_echo_rx_interval"></a> [echo\_rx\_interval](#input\_echo\_rx\_interval) | Echo RX interval | `number` | `50` | no |
-| <a name="input_min_rx_interval"></a> [min\_rx\_interval](#input\_min\_rx\_interval) | Min RX interval | `number` | `50` | no |
-| <a name="input_min_tx_interval"></a> [min\_tx\_interval](#input\_min\_tx\_interval) | Min TX interval | `number` | `50` | no |
+| <a name="input_echo_rx_interval"></a> [echo\_rx\_interval](#input\_echo\_rx\_interval) | Echo RX interval, Minimum value: 50, Maximum value: 999. | `number` | `50` | no |
+| <a name="input_min_rx_interval"></a> [min\_rx\_interval](#input\_min\_rx\_interval) | Min RX interval, Minimum value: 50, Maximum value: 999. | `number` | `50` | no |
+| <a name="input_min_tx_interval"></a> [min\_tx\_interval](#input\_min\_tx\_interval) | Min TX interval, Minimum value: 50, Maximum value: 999. | `number` | `50` | no |
 
 ## Outputs
 

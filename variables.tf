@@ -35,7 +35,7 @@ variable "subinterface_optimization" {
 }
 
 variable "detection_multiplier" {
-  description = "Detection multiplier"
+  description = "Detection multiplier, Minimum value: 1, Maximum value: 50."
   type        = number
   default     = 3
 
@@ -52,7 +52,7 @@ variable "echo_admin_state" {
 }
 
 variable "echo_rx_interval" {
-  description = "Echo RX interval"
+  description = "Echo RX interval, Minimum value: 50, Maximum value: 999."
   type        = number
   default     = 50
 
@@ -63,7 +63,7 @@ variable "echo_rx_interval" {
 }
 
 variable "min_rx_interval" {
-  description = "Min RX interval"
+  description = "Min RX interval, Minimum value: 50, Maximum value: 999."
   type        = number
   default     = 50
 
@@ -74,7 +74,7 @@ variable "min_rx_interval" {
 }
 
 variable "min_tx_interval" {
-  description = "Min TX interval"
+  description = "Min TX interval, Minimum value: 50, Maximum value: 999."
   type        = number
   default     = 50
 

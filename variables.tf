@@ -40,7 +40,7 @@ variable "detection_multiplier" {
   default     = 3
 
   validation {
-    condition     = var.detection_multiplier >= 1 || var.detection_multiplier <= 50
+    condition     = var.detection_multiplier >= 1 && var.detection_multiplier <= 50
     error_message = "Minimum value: 1, Maximum value: 50."
   }
 }
@@ -57,7 +57,7 @@ variable "echo_rx_interval" {
   default     = 50
 
   validation {
-    condition     = var.echo_rx_interval >= 50 || var.echo_rx_interval <= 999
+    condition     = var.echo_rx_interval >= 50 && var.echo_rx_interval <= 999
     error_message = "Minimum value: 50, Maximum value: 999."
   }
 }
@@ -68,7 +68,7 @@ variable "min_rx_interval" {
   default     = 50
 
   validation {
-    condition     = var.min_rx_interval >= 50 || var.min_rx_interval <= 999
+    condition     = var.min_rx_interval >= 50 && var.min_rx_interval <= 999
     error_message = "Minimum value: 50, Maximum value: 999."
   }
 }
@@ -79,7 +79,7 @@ variable "min_tx_interval" {
   default     = 50
 
   validation {
-    condition     = var.min_tx_interval >= 50 || var.min_tx_interval <= 999
+    condition     = var.min_tx_interval >= 50 && var.min_tx_interval <= 999
     error_message = "Minimum value: 50, Maximum value: 999."
   }
 }

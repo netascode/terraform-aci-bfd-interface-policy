@@ -58,8 +58,8 @@ module "aci_bfd_interface_policy" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `bfdIfPol` object |
-| <a name="output_name"></a> [name](#output\_name) | BFD interface policy name |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `bfdIfPol` object. |
+| <a name="output_name"></a> [name](#output\_name) | BFD interface policy name. |
 
 ## Resources
 

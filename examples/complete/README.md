@@ -14,7 +14,7 @@ Note that this example will create resources. Resources can be destroyed with `t
 ```hcl
 module "aci_bfd_interface_policy" {
   source  = "netascode/bfd-interface-policy/aci"
-  version = ">= 0.0.1"
+  version = ">= 0.1.0"
 
   tenant                    = "ABC"
   name                      = "BFD1"
@@ -26,6 +26,5 @@ module "aci_bfd_interface_policy" {
   min_rx_interval           = 100
   min_tx_interval           = 100
 }
-
 ```
 <!-- END_TF_DOCS -->

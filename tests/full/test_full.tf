@@ -5,13 +5,13 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
 
-resource "aci_rest" "fvTenant" {
+resource "aci_rest_managed" "fvTenant" {
   dn         = "uni/tn-TF"
   class_name = "fvTenant"
 }
@@ -19,7 +19,7 @@ resource "aci_rest" "fvTenant" {
 module "main" {
   source = "../.."
 
-  tenant                    = aci_rest.fvTenant.content.name
+  tenant                    = aci_rest_managed.fvTenant.content.name
   name                      = "BFD1"
   description               = "My Description"
   subinterface_optimization = true
@@ -30,8 +30,8 @@ module "main" {
   min_tx_interval           = 100
 }
 
-data "aci_rest" "bfdIfPol" {
-  dn = "uni/tn-${aci_rest.fvTenant.content.name}/bfdIfPol-${module.main.name}"
+data "aci_rest_managed" "bfdIfPol" {
+  dn = "uni/tn-${aci_rest_managed.fvTenant.content.name}/bfdIfPol-${module.main.name}"
 
   depends_on = [module.main]
 }
@@ -41,49 +41,49 @@ resource "test_assertions" "bfdIfPol" {
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.bfdIfPol.content.name
+    got         = data.aci_rest_managed.bfdIfPol.content.name
     want        = module.main.name
   }
 
   equal "descr" {
     description = "descr"
-    got         = data.aci_rest.bfdIfPol.content.descr
+    got         = data.aci_rest_managed.bfdIfPol.content.descr
     want        = "My Description"
   }
 
   equal "ctrl" {
     description = "ctrl"
-    got         = data.aci_rest.bfdIfPol.content.ctrl
+    got         = data.aci_rest_managed.bfdIfPol.content.ctrl
     want        = "opt-subif"
   }
 
   equal "detectMult" {
     description = "detectMult"
-    got         = data.aci_rest.bfdIfPol.content.detectMult
+    got         = data.aci_rest_managed.bfdIfPol.content.detectMult
     want        = "10"
   }
 
   equal "echoAdminSt" {
     description = "echoAdminSt"
-    got         = data.aci_rest.bfdIfPol.content.echoAdminSt
+    got         = data.aci_rest_managed.bfdIfPol.content.echoAdminSt
     want        = "enabled"
   }
 
   equal "echoRxIntvl" {
     description = "echoRxIntvl"
-    got         = data.aci_rest.bfdIfPol.content.echoRxIntvl
+    got         = data.aci_rest_managed.bfdIfPol.content.echoRxIntvl
     want        = "100"
   }
 
   equal "minRxIntvl" {
     description = "minRxIntvl"
-    got         = data.aci_rest.bfdIfPol.content.minRxIntvl
+    got         = data.aci_rest_managed.bfdIfPol.content.minRxIntvl
     want        = "100"
   }
 
   equal "minTxIntvl" {
     description = "minTxIntvl"
-    got         = data.aci_rest.bfdIfPol.content.minTxIntvl
+    got         = data.aci_rest_managed.bfdIfPol.content.minTxIntvl
     want        = "100"
   }
 }
